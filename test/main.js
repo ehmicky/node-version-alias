@@ -27,4 +27,4 @@ test('Passes options to all-node-versions', async (t) => {
   )
 })
 
-const INVALID_MIRROR = 'http://invalid-mirror.com'
+const INVALID_MIRROR = 'not_valid_url'
