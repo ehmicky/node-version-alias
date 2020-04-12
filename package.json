@@ -59,7 +59,8 @@
     "@ehmicky/dev-tasks": "^0.31.36",
     "ava": "^3.7.0",
     "gulp": "^4.0.2",
-    "husky": "^4.2.5"
+    "husky": "^4.2.5",
+    "test-each": "^2.0.0"
   },
   "engines": {
     "node": ">=10.17.0"
