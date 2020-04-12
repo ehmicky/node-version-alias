@@ -53,11 +53,13 @@
     "filter-obj": "^2.0.1",
     "jest-validate": "^25.3.0",
     "normalize-node-version": "^9.0.1",
+    "path-exists": "^4.0.0",
     "semver": "^7.3.2"
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^0.31.36",
-    "ava": "^3.7.0",
+    "ava": "^3.7.1",
+    "got": "^10.7.0",
     "gulp": "^4.0.2",
     "husky": "^4.2.5",
     "test-each": "^2.0.0"

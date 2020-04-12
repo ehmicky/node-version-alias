@@ -11,6 +11,11 @@ import { getOpts } from './options.js'
 export const nodeVersionAlias = async function (alias, opts) {
   const { allNodeOpts, normalizeOpts } = getOpts(opts)
   const versionRange = await getVersionRange(alias, allNodeOpts)
+
+  if (versionRange === undefined) {
+    throw new Error(`Invalid Node.js version alias: ${alias}`)
+  }
+
   const version = await normalizeNodeVersion(versionRange, normalizeOpts)
   return version
 }
@@ -26,21 +31,22 @@ const getVersionRange = async function (alias, allNodeOpts) {
     return versionRange
   }
 
-  const versionRangeA = await getComplexAlias(alias, allNodeOpts)
-
-  if (versionRangeA !== undefined) {
-    return versionRangeA
-  }
-
-  throw new Error(`Invalid Node.js version alias: ${alias}`)
-}
-
-const getComplexAlias = function (alias, allNodeOpts) {
   if (alias.startsWith('lts')) {
     return getLts(alias, allNodeOpts)
   }
 
-  return getNvmCustomAlias(alias)
+  return getRecursiveNvmAlias(alias, allNodeOpts)
+}
+
+// nvm custom aliases can be recursive
+const getRecursiveNvmAlias = async function (alias, allNodeOpts) {
+  const aliasResult = await getNvmCustomAlias(alias)
+
+  if (aliasResult === undefined) {
+    return
+  }
+
+  return getVersionRange(aliasResult, allNodeOpts)
 }
 
 // We do not use `export default` because Babel transpiles it in a way that

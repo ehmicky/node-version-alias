@@ -7,7 +7,6 @@ import {
   MAJOR_VERSION,
   MAJOR_FULL_VERSION,
   UNKNOWN_VERSION,
-  UNKNOWN_ALIAS,
 } from './helpers/versions.js'
 
 test('Keep full versions', async (t) => {
@@ -28,10 +27,6 @@ test('Passes options to all-node-versions', async (t) => {
   await t.throwsAsync(
     nodeVersionAlias(FULL_VERSION, { mirror: INVALID_MIRROR, fetch: true }),
   )
-})
-
-test('Validates unknown alias', async (t) => {
-  await t.throwsAsync(nodeVersionAlias(UNKNOWN_ALIAS))
 })
 
 const INVALID_MIRROR = 'not_valid_url'
