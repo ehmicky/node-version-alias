@@ -35,9 +35,17 @@ test('Can use "lts/-number"', async (t) => {
   t.true(gtVersion(ltsOne, ltsTwo))
 })
 
+test('Validates "lts/-number"', async (t) => {
+  await t.throwsAsync(nodeVersionAlias('lts/-99'))
+})
+
 test('Can use "lts/name"', async (t) => {
   const version = await nodeVersionAlias('lts/boron')
   t.is(version, LATEST_BORON)
+})
+
+test('Validates "lts/name"', async (t) => {
+  await t.throwsAsync(nodeVersionAlias('lts/unknown'))
 })
 
 // This test requires non-implemented features:
