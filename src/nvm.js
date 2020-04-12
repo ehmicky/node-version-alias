@@ -1,5 +1,5 @@
 import { execFile } from 'child_process'
-import { platform } from 'process'
+import { env } from 'process'
 import { promisify } from 'util'
 
 const pExecFile = promisify(execFile)
@@ -16,7 +16,7 @@ export const getNvmSystemVersion = function () {
 
 // nvm requires Bash and reading the user's `.profile` to source `nvm.sh`
 const runNvmCommand = async function (command) {
-  if (platform === 'win32') {
+  if (!env.NVM_DIR) {
     return
   }
 
