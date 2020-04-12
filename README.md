@@ -5,7 +5,7 @@
 [![Twitter](https://img.shields.io/badge/%E2%80%8B-twitter-4cc61e.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ehmicky)
 [![Medium](https://img.shields.io/badge/%E2%80%8B-medium-4cc61e.svg?logo=medium)](https://medium.com/@ehmicky)
 
-Resolve Node.js version aliases like 'latest', 'lts' or 'erbium'.
+Resolve Node.js version aliases like `latest`, `lts` or `erbium`.
 
 Those aliases are often used by Node.js version managers like
 [`nvm`](https://github.com/nvm-sh/nvm),
@@ -14,21 +14,30 @@ Those aliases are often used by Node.js version managers like
 [`nodeenv`](https://github.com/ekalinin/nodeenv) or
 [`nodist`](https://github.com/nullivex/nodist).
 
-This library resolves them to a `"major.minor.patch"` version string. The
-following aliases are supported:
+This resolves them to a `"major.minor.patch"` version string. The following
+aliases are supported:
 
-- `latest`, `stable`, `node`, `current`: latest Node.js version
-- `lts` or `lts/*`: latest LTS version
-- `lts/-1`, `lts/-2`, etc.: first/second/etc. latest LTS version
-- `lts/erbium`, `erbium`: specific LTS, using its name (case-insensitive)
+- [`latest`](https://github.com/tj/n#specifying-node-versions),
+  [`stable`](https://github.com/nvm-sh/nvm#usage),
+  [`node`](https://github.com/nvm-sh/nvm#usage),
+  [`current`](https://github.com/tj/n#specifying-node-versions): latest version
+- [`lts`](https://github.com/jasongin/nvs#basic-usage) or
+  [`lts/*`](https://github.com/nvm-sh/nvm#long-term-support): latest LTS version
+- [`lts/-1`](https://github.com/nvm-sh/nvm#long-term-support),
+  [`lts/-2`](https://github.com/nvm-sh/nvm#long-term-support), etc.:
+  first/second/etc. latest LTS version
+- [`lts/erbium`](https://github.com/nvm-sh/nvm#long-term-support),
+  [`erbium`](https://github.com/nvm-sh/nvm#long-term-support), etc.: specific
+  LTS, using its [name](https://github.com/nodejs/Release) (case-insensitive)
 - nvm custom aliases
-- `system`: system's Node.js version when `nvm` is deactivated
-- `iojs`: always `4.0.0`
-- `unstable`: always `0.11`
+- [`system`](https://github.com/nvm-sh/nvm#system-version-of-node): system's
+  Node.js version when `nvm` is deactivated
+- [`iojs`](https://github.com/nvm-sh/nvm#usage): always `4.0.0`
+- [`unstable`](https://github.com/nvm-sh/nvm#usage): always `0.11`
 
 Normal versions (like `12.1.0`, `12` or `>=10`) are valid inputs too.
 
-# Example
+# Examples
 
 <!-- Remove 'eslint-skip' once estree supports top-level await -->
 <!-- eslint-skip -->
@@ -36,9 +45,14 @@ Normal versions (like `12.1.0`, `12` or `>=10`) are valid inputs too.
 ```js
 const nodeVersionAlias = require('node-version-alias')
 
-const alias = 'latest'
-const version = await nodeVersionAlias(alias, options)
-console.log(version) // 13.13.0
+// Note: the following examples might be out-of-sync with the actual versions
+console.log(await nodeVersionAlias('latest', options)) // 13.13.0
+console.log(await nodeVersionAlias('lts', options)) // 12.16.2
+console.log(await nodeVersionAlias('lts/erbium', options)) // 12.16.2
+console.log(await nodeVersionAlias('lts/-2', options)) // 10.20.1
+console.log(await nodeVersionAlias('10', options)) // 10.20.1
+console.log(await nodeVersionAlias('10.0.0', options)) // 10.0.0
+console.log(await nodeVersionAlias('>=10', options)) // 13.13.0
 ```
 
 # Install
