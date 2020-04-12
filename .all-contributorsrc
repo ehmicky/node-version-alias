@@ -1,0 +1,38 @@
+{
+  "projectName": "node-version-alias",
+  "projectOwner": "ehmicky",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "ehmicky",
+      "name": "ehmicky",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/8136211?v=4",
+      "profile": "https://twitter.com/ehmicky",
+      "contributions": [
+        "code",
+        "design",
+        "ideas",
+        "doc"
+      ]
+    },
+    {
+      "login": "AdrieanKhisbe",
+      "name": "Adrien Becchis",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2601132?v=4",
+      "profile": "https://twitter.com/adrieankhisbe",
+      "contributions": [
+        "code",
+        "test",
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true
+}
