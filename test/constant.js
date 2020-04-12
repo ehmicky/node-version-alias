@@ -3,8 +3,7 @@ import { each } from 'test-each'
 
 import nodeVersionAlias from '../src/main.js'
 
-const IOJS_VERSION = '4.0.0'
-const UNSTABLE_VERSION = '0.11.16'
+import { IOJS_VERSION, UNSTABLE_VERSION } from './helpers/versions.js'
 
 each(['latest', 'stable', 'node', 'current'], ({ title }, alias) => {
   test(`Latest version | ${title}`, async (t) => {

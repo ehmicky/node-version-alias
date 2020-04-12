@@ -2,10 +2,12 @@ import test from 'ava'
 
 import nodeVersionAlias from '../src/main.js'
 
-const FULL_VERSION = '6.0.0'
-const MAJOR_VERSION = '6'
-const MAJOR_FULL_VERSION = '6.17.1'
-const UNKNOWN_VERSION = '6.99.0'
+import {
+  FULL_VERSION,
+  MAJOR_VERSION,
+  MAJOR_FULL_VERSION,
+  UNKNOWN_VERSION,
+} from './helpers/versions.js'
 
 test('Keep full versions', async (t) => {
   const version = await nodeVersionAlias(FULL_VERSION)
