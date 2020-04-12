@@ -1,5 +1,3 @@
-import { cwd as getCwd } from 'process'
-
 import filterObj from 'filter-obj'
 import { validate } from 'jest-validate'
 
@@ -19,8 +17,6 @@ export const getOpts = function (opts = {}) {
 const DEFAULT_OPTS = {}
 
 const EXAMPLE_OPTS = {
-  // Passed to `normalize-node-version`
-  cwd: getCwd(),
   // Passed to `all-node-versions`
   fetch: true,
   // Passed to `fetch-node-website`
