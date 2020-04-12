@@ -1,21 +1,43 @@
 import allNodeVersions from 'all-node-versions'
 import test from 'ava'
-import { major as getMajor } from 'semver'
+import { major as getMajor, gt as gtVersion } from 'semver'
 import { each } from 'test-each'
 
 import nodeVersionAlias from '../src/main.js'
 
+import { LATEST_BORON } from './helpers/versions.js'
+
+const getLatestFromMajor = async function (version) {
+  const { versions } = await allNodeVersions()
+  const majorVersion = getMajor(version)
+  return versions.find((versionA) => getMajor(versionA) === majorVersion)
+}
+
 each(['lts', 'lts/*', 'lts/-0'], ({ title }, alias) => {
   test(`Can target latest LTS | ${title}`, async (t) => {
-    const [version, { majors }] = await Promise.all([
-      nodeVersionAlias(alias),
-      allNodeVersions(),
-    ])
-    const majorVersion = getMajor(version)
-    // eslint-disable-next-line max-nested-callbacks
-    const latestLts = majors.find(({ major }) => major === majorVersion).latest
+    const version = await nodeVersionAlias(alias)
+    const latestLts = await getLatestFromMajor(version)
     t.is(version, latestLts)
   })
+})
+
+test('Can use "lts/-number"', async (t) => {
+  const [ltsOne, ltsTwo] = await Promise.all([
+    nodeVersionAlias('lts/-1'),
+    nodeVersionAlias('lts/-2'),
+  ])
+
+  const latestLtsOne = await getLatestFromMajor(ltsOne)
+  t.is(ltsOne, latestLtsOne)
+  const latestLtsTwo = await getLatestFromMajor(ltsTwo)
+  t.is(ltsTwo, latestLtsTwo)
+
+  t.true(gtVersion(ltsOne, ltsTwo))
+})
+
+test('Can use "lts/name"', async (t) => {
+  const version = await nodeVersionAlias('lts/boron')
+  t.is(version, LATEST_BORON)
 })
 
 // This test requires non-implemented features:

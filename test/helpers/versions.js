@@ -1,6 +1,7 @@
 export const FULL_VERSION = '6.0.0'
 export const MAJOR_VERSION = '6'
 export const MAJOR_FULL_VERSION = '6.17.1'
+export const LATEST_BORON = '6.17.1'
 export const UNKNOWN_VERSION = '6.99.0'
 export const UNKNOWN_ALIAS = 'unknown'
 export const IOJS_VERSION = '4.0.0'
