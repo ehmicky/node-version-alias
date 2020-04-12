@@ -5,7 +5,7 @@ import allNodeVersions from 'all-node-versions'
 export const getLts = async function (alias, allNodeOpts) {
   const majors = await getLtsMajors(allNodeOpts)
 
-  // Can happen when using some Node.js mirrors like Nightly
+  // Can happen when using some Node.js mirrors like V8-canary
   if (majors.length === 0) {
     return '*'
   }
