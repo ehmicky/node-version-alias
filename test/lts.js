@@ -44,20 +44,11 @@ test('Can use "lts/name"', async (t) => {
   t.is(version, LATEST_BORON)
 })
 
+test('Can use "ltsName"', async (t) => {
+  const version = await nodeVersionAlias('boron')
+  t.is(version, LATEST_BORON)
+})
+
 test('Validates "lts/name"', async (t) => {
   await t.throwsAsync(nodeVersionAlias('lts/unknown'))
 })
-
-// This test requires non-implemented features:
-//  - per-mirror `index.js` caching
-//  - v8 canary mirror support
-// eslint-disable-next-line ava/no-skip-test
-test.skip('lts with wrong mirror', async (t) => {
-  const [version, latestVersion] = await Promise.all([
-    nodeVersionAlias('lts', { mirror: V8_CANARY_MIRROR }),
-    nodeVersionAlias('*', { mirror: V8_CANARY_MIRROR }),
-  ])
-  t.is(version, latestVersion)
-})
-
-const V8_CANARY_MIRROR = 'https://nodejs.org/download/v8-canary'

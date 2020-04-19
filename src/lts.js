@@ -1,16 +1,10 @@
 import allNodeVersions from 'all-node-versions'
 
-// Normalize `lts`, `lts/*`, `lts/-num` and `lts/name` aliases used by
+// Normalize `lts`, `lts/*`, `lts/-num` and `[lts/]name` aliases used by
 // `.nvmrc` and others
-export const getLts = async function (alias, allNodeOpts) {
-  const majors = await getLtsMajors(allNodeOpts)
-
-  // Can happen when using some Node.js mirrors like V8-canary
-  if (majors.length === 0) {
-    return '*'
-  }
-
-  const major = getLtsMajor(alias, majors)
+export const getLtsAlias = async function (alias, allNodeOpts) {
+  const ltsMajors = await getLtsMajors(allNodeOpts)
+  const major = getLtsMajor(alias, ltsMajors)
 
   if (major === undefined) {
     return
@@ -20,7 +14,7 @@ export const getLts = async function (alias, allNodeOpts) {
 }
 
 // Retrieve all major releases that are LTS
-const getLtsMajors = async function (allNodeOpts) {
+export const getLtsMajors = async function (allNodeOpts) {
   const { majors } = await allNodeVersions(allNodeOpts)
   return majors.filter(isLts)
 }
@@ -30,18 +24,18 @@ const isLts = function ({ lts }) {
 }
 
 // Find the LTS that matches the alias
-const getLtsMajor = function (alias, majors) {
+const getLtsMajor = function (alias, ltsMajors) {
   if (LATEST_LTS.has(alias)) {
-    return majors[0]
+    return ltsMajors[0]
   }
 
-  const major = getNumberedLts(alias, majors)
+  const major = getNumberedLts(alias, ltsMajors)
 
   if (major !== undefined) {
     return major
   }
 
-  return getNamedLts(alias, majors)
+  return getNamedLts(alias, ltsMajors)
 }
 
 // Those aliases mean the latest LTS
@@ -52,23 +46,23 @@ const LATEST_LTS = new Set(['lts', 'lts/*', 'lts/-0'])
 
 // `lts/-num` means the numth latest LTS.
 // Used by nvm
-const getNumberedLts = function (alias, majors) {
+const getNumberedLts = function (alias, ltsMajors) {
   const result = NUMBER_LTS_REGEXP.exec(alias)
 
   if (result === null) {
     return
   }
 
-  return majors[result[1] - 1]
+  return ltsMajors[result[1] - 1]
 }
 
 const NUMBER_LTS_REGEXP = /^lts\/-(\d+)$/u
 
-// `lts/name` means a specific LTS named likewise.
+// `lts/name` or just `name` means a specific LTS named likewise.
 // Used by nvm, nave, nvs, fish-nvm
-const getNamedLts = function (alias, majors) {
+const getNamedLts = function (alias, ltsMajors) {
   const name = alias.replace(LTS_PREFIX, '').toLowerCase()
-  return majors.find(({ lts }) => lts === name)
+  return ltsMajors.find(({ lts }) => lts === name)
 }
 
 const LTS_PREFIX = 'lts/'

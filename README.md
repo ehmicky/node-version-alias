@@ -49,6 +49,7 @@ const nodeVersionAlias = require('node-version-alias')
 console.log(await nodeVersionAlias('latest', options)) // 13.13.0
 console.log(await nodeVersionAlias('lts', options)) // 12.16.2
 console.log(await nodeVersionAlias('lts/erbium', options)) // 12.16.2
+console.log(await nodeVersionAlias('erbium', options)) // 12.16.2
 console.log(await nodeVersionAlias('lts/-2', options)) // 10.20.1
 console.log(await nodeVersionAlias('10', options)) // 10.20.1
 console.log(await nodeVersionAlias('10.0.0', options)) // 10.0.0

@@ -2,7 +2,7 @@ import normalizeNodeVersion from 'normalize-node-version'
 import { validRange } from 'semver'
 
 import { getConstantAlias } from './constant.js'
-import { getLts } from './lts.js'
+import { getLtsAlias } from './lts.js'
 import { getNvmCustomAlias } from './nvm.js'
 import { getOpts } from './options.js'
 
@@ -31,8 +31,10 @@ const getVersionRange = async function (alias, allNodeOpts) {
     return versionRange
   }
 
-  if (alias.startsWith('lts')) {
-    return getLts(alias, allNodeOpts)
+  const versionRangeA = await getLtsAlias(alias, allNodeOpts)
+
+  if (versionRangeA !== undefined) {
+    return versionRangeA
   }
 
   return getRecursiveNvmAlias(alias, allNodeOpts)
