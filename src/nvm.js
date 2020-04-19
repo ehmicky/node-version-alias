@@ -25,7 +25,7 @@ const runNvmCommand = async function (command) {
 
   const nvmPath = join(env.NVM_DIR, 'nvm.sh')
 
-  if (await !pathExists(nvmPath)) {
+  if (!(await pathExists(nvmPath))) {
     return
   }
 
