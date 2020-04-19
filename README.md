@@ -78,7 +78,7 @@ npm install node-version-alias
 ## nodeVersionAlias(alias, options?)
 
 `alias`: `string`\
-`options`: `object`\
+`options`: `object?`\
 _Returns_: `Promise<string>`
 
 The return value resolves to a `"major.minor.patch"` version string.
