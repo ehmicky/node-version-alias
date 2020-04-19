@@ -1,6 +1,6 @@
 {
   "name": "node-version-alias",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "build/src/main.js",
   "files": [
     "build/src",
