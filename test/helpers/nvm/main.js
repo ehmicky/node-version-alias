@@ -10,8 +10,8 @@ const pPipeline = promisify(pipeline)
 const pExecFile = promisify(execFile)
 
 const NVM_URL = 'https://raw.githubusercontent.com/nvm-sh/nvm/master/nvm.sh'
-export const NVM_DIR = `${__dirname}`
-const NVM_DIST = `${NVM_DIR}/nvm.sh`
+export const NVM_DIR = __dirname
+const NVM_DIST = join(NVM_DIR, 'nvm.sh')
 
 // We test `nvm` by downloading it locally. It is a Bash script and is not on
 // `npm` so we need to download it.
@@ -38,10 +38,9 @@ export const cleanupNvm = async function () {
 
 // Run `nvm` command in tests
 export const runNvmCommand = async function (command) {
-  const nvmPath = join(NVM_DIR, 'nvm.sh')
   const { stdout } = await pExecFile('bash', [
     '-c',
-    `source "${nvmPath}" && ${command}`,
+    `source "${NVM_DIST}" && ${command}`,
   ])
   return stdout.trim()
 }
