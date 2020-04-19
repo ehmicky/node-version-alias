@@ -115,6 +115,8 @@ The list of available Node.js versions is cached for one hour by default. If the
 - [`get-node`](https://github.com/ehmicky/get-node): Download Node.js
 - [`normalize-node-version`](https://github.com/ehmicky/normalize-node-version):
   Normalize and validate Node.js versions
+- [`preferred-node-version`](https://github.com/ehmicky/preferred-node-version):
+  Get the preferred Node.js version of a project or user
 - [`all-node-versions`](https://github.com/ehmicky/all-node-versions): List all
   available Node.js versions
 - [`fetch-node-website`](https://github.com/ehmicky/fetch-node-website): Fetch
