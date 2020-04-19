@@ -6,8 +6,8 @@ import { getLtsAlias } from './lts.js'
 import { getNvmCustomAlias } from './nvm.js'
 import { getOpts } from './options.js'
 
-// Resolve Node.js version managers aliases like `latest`, `lts` or `erbium`
-// First resolve them to a version range, then to a full version
+// Resolve Node.js version managers aliases like `latest`, `lts` or `erbium`.
+// First resolve them to a version range, then to a full version.
 export const nodeVersionAlias = async function (alias, opts) {
   const { allNodeOpts, normalizeOpts } = getOpts(opts)
   const versionRange = await getVersionRange(alias, allNodeOpts)

@@ -39,8 +39,8 @@ const getLtsMajor = function (alias, ltsMajors) {
 }
 
 // Those aliases mean the latest LTS
-// `lts/*` is used by nvm, nave, nvs
 // `lts` is used by n, nave, nvs, fish-nvm
+// `lts/*` is used by nvm, nave, nvs
 // `lts/-0` is used by nvm
 const LATEST_LTS = new Set(['lts', 'lts/*', 'lts/-0'])
 
