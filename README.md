@@ -7,7 +7,7 @@
 
 Resolve Node.js version aliases like `latest`, `lts` or `erbium`.
 
-Those aliases are often used by Node.js version managers like
+Those aliases are used by Node.js version managers like
 [`nvm`](https://github.com/nvm-sh/nvm),
 [`nvs`](https://github.com/jasongin/nvs), [`n`](https://github.com/tj/n),
 [`nave`](https://github.com/isaacs/nave),
@@ -29,13 +29,13 @@ aliases are supported:
 - [`lts/erbium`](https://github.com/nvm-sh/nvm#long-term-support),
   [`erbium`](https://github.com/nvm-sh/nvm#long-term-support), etc.: specific
   LTS, using its [name](https://github.com/nodejs/Release) (case-insensitive)
-- nvm custom aliases
-- [`system`](https://github.com/nvm-sh/nvm#system-version-of-node): system's
-  Node.js version when `nvm` is deactivated
+- nvm custom aliases (including `default`)
+- [`system`](https://github.com/nvm-sh/nvm#system-version-of-node): Node.js
+  version when `nvm` is deactivated
 - [`iojs`](https://github.com/nvm-sh/nvm#usage): always `4.0.0`
-- [`unstable`](https://github.com/nvm-sh/nvm#usage): always `0.11`
+- [`unstable`](https://github.com/nvm-sh/nvm#usage): always `0.11.6`
 
-Normal versions (like `12.1.0`, `12` or `>=10`) are valid inputs too.
+Normal version ranges (like `12.1.0`, `12` or `>=10`) are valid inputs too.
 
 # Examples
 
@@ -46,14 +46,25 @@ Normal versions (like `12.1.0`, `12` or `>=10`) are valid inputs too.
 const nodeVersionAlias = require('node-version-alias')
 
 // Note: the following examples might be out-of-sync with the actual versions
-console.log(await nodeVersionAlias('latest', options)) // 13.13.0
-console.log(await nodeVersionAlias('lts', options)) // 12.16.2
-console.log(await nodeVersionAlias('lts/erbium', options)) // 12.16.2
-console.log(await nodeVersionAlias('erbium', options)) // 12.16.2
-console.log(await nodeVersionAlias('lts/-2', options)) // 10.20.1
-console.log(await nodeVersionAlias('10', options)) // 10.20.1
-console.log(await nodeVersionAlias('10.0.0', options)) // 10.0.0
-console.log(await nodeVersionAlias('>=10', options)) // 13.13.0
+console.log(await nodeVersionAlias('latest')) // 13.13.0
+console.log(await nodeVersionAlias('lts')) // 12.16.2
+console.log(await nodeVersionAlias('lts/erbium')) // 12.16.2
+console.log(await nodeVersionAlias('erbium')) // 12.16.2
+console.log(await nodeVersionAlias('lts/-2')) // 10.20.1
+
+// Normal version ranges
+console.log(await nodeVersionAlias('10.0.0')) // 10.0.0
+console.log(await nodeVersionAlias('10')) // 10.20.1
+console.log(await nodeVersionAlias('^10')) // 10.20.1
+console.log(await nodeVersionAlias('>=10')) // 13.13.0
+
+// Allowed options
+await nodeVersionAlias('latest', {
+  // Use a mirror for Node.js binaries
+  mirror: 'https://npm.taobao.org/mirrors/node',
+  // Do not cache the list of available Node.js versions
+  fetch: true,
+})
 ```
 
 # Install
@@ -69,6 +80,8 @@ npm install node-version-alias
 `alias`: `string`\
 `options`: `object`\
 _Returns_: `Promise<string>`
+
+The return value resolves to a `"major.minor.patch"` version string.
 
 ### options
 
