@@ -6,8 +6,9 @@ import { promisify } from 'util'
 
 import got from 'got'
 
-const pPipeline = promisify(pipeline)
 const pExecFile = promisify(execFile)
+// TODO: use `stream/promises` instead once dropping support for Node <15.0.0
+const pPipeline = promisify(pipeline)
 
 const NVM_URL = 'https://raw.githubusercontent.com/nvm-sh/nvm/master/nvm.sh'
 export const NVM_DIR = __dirname
