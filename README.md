@@ -1,7 +1,6 @@
 [![Codecov](https://img.shields.io/codecov/c/github/ehmicky/node-version-alias.svg?label=tested&logo=codecov)](https://codecov.io/gh/ehmicky/node-version-alias)
 [![Build](https://github.com/ehmicky/node-version-alias/workflows/Build/badge.svg)](https://github.com/ehmicky/node-version-alias/actions)
 [![Node](https://img.shields.io/node/v/node-version-alias.svg?logo=node.js)](https://www.npmjs.com/package/node-version-alias)
-[![Gitter](https://img.shields.io/gitter/room/ehmicky/node-version-alias.svg?logo=gitter)](https://gitter.im/ehmicky/node-version-alias)
 [![Twitter](https://img.shields.io/badge/%E2%80%8B-twitter-4cc61e.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ehmicky)
 [![Medium](https://img.shields.io/badge/%E2%80%8B-medium-4cc61e.svg?logo=medium)](https://medium.com/@ehmicky)
 
@@ -124,11 +123,7 @@ The list of available Node.js versions is cached for one hour by default. If the
 
 # Support
 
-If you found a bug or would like a new feature, _don't hesitate_ to
-[submit an issue on GitHub](../../issues).
-
-For other questions, feel free to
-[chat with us on Gitter](https://gitter.im/ehmicky/node-version-alias).
+For any question, _don't hesitate_ to [submit an issue on GitHub](../../issues).
 
 Everyone is welcome regardless of personal background. We enforce a
 [Code of conduct](CODE_OF_CONDUCT.md) in order to promote a positive and
