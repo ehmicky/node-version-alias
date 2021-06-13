@@ -42,7 +42,7 @@ Normal version ranges (like `12.1.0`, `12` or `>=10`) are valid inputs too.
 <!-- eslint-skip -->
 
 ```js
-const nodeVersionAlias = require('node-version-alias')
+import nodeVersionAlias from 'node-version-alias'
 
 // Note: the following examples might be out-of-sync with the actual versions
 console.log(await nodeVersionAlias('latest')) // 13.13.0
