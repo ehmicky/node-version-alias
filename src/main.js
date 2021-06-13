@@ -8,7 +8,8 @@ import { getOpts } from './options.js'
 
 // Resolve Node.js version managers aliases like `latest`, `lts` or `erbium`.
 // First resolve them to a version range, then to a full version.
-export const nodeVersionAlias = async function (alias, opts) {
+// eslint-disable-next-line import/no-default-export
+export default async function nodeVersionAlias(alias, opts) {
   const { allNodeOpts, normalizeOpts } = getOpts(opts)
   const versionRange = await getVersionRange(alias, allNodeOpts)
 
@@ -50,7 +51,3 @@ const getRecursiveNvmAlias = async function (alias, allNodeOpts) {
 
   return getVersionRange(aliasResult, allNodeOpts)
 }
-
-// We do not use `export default` because Babel transpiles it in a way that
-// requires CommonJS users to `require(...).default` instead of `require(...)`.
-module.exports = nodeVersionAlias
