@@ -2,15 +2,15 @@ import allNodeVersions from 'all-node-versions'
 import test from 'ava'
 // eslint-disable-next-line node/no-extraneous-import
 import nodeVersionAlias from 'node-version-alias'
-import { major as getMajor, gt as gtVersion } from 'semver'
+import semver from 'semver'
 import { each } from 'test-each'
 
 import { LATEST_BORON } from './helpers/versions.js'
 
 const getLatestFromMajor = async function (version) {
   const { versions } = await allNodeVersions()
-  const majorVersion = getMajor(version)
-  return versions.find((versionA) => getMajor(versionA) === majorVersion)
+  const majorVersion = semver.major(version)
+  return versions.find((versionA) => semver.major(versionA) === majorVersion)
 }
 
 each(['lts', 'lts/*', 'lts/-0'], ({ title }, alias) => {
@@ -32,7 +32,7 @@ test('Can use "lts/-number"', async (t) => {
   const latestLtsTwo = await getLatestFromMajor(ltsTwo)
   t.is(ltsTwo, latestLtsTwo)
 
-  t.true(gtVersion(ltsOne, ltsTwo))
+  t.true(semver.gt(ltsOne, ltsTwo))
 })
 
 test('Validates "lts/-number"', async (t) => {

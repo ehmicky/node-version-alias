@@ -1,5 +1,5 @@
 import normalizeNodeVersion from 'normalize-node-version'
-import { validRange } from 'semver'
+import semver from 'semver'
 
 import { getConstantAlias } from './constant.js'
 import { getLtsAlias } from './lts.js'
@@ -22,7 +22,7 @@ export default async function nodeVersionAlias(alias, opts) {
 }
 
 const getVersionRange = async function (alias, allNodeOpts) {
-  if (validRange(alias) !== null) {
+  if (semver.validRange(alias) !== null) {
     return alias
   }
 
