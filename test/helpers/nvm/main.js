@@ -1,7 +1,8 @@
 import { execFile } from 'child_process'
 import { createWriteStream, promises as fs } from 'fs'
-import { join } from 'path'
+import { join, dirname } from 'path'
 import { pipeline } from 'stream'
+import { fileURLToPath } from 'url'
 import { promisify } from 'util'
 
 import got from 'got'
@@ -11,7 +12,7 @@ const pExecFile = promisify(execFile)
 const pPipeline = promisify(pipeline)
 
 const NVM_URL = 'https://raw.githubusercontent.com/nvm-sh/nvm/master/nvm.sh'
-export const NVM_DIR = __dirname
+export const NVM_DIR = dirname(fileURLToPath(import.meta.url))
 const NVM_DIST = join(NVM_DIR, 'nvm.sh')
 
 // We test `nvm` by downloading it locally. It is a Bash script and is not on
