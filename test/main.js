@@ -1,6 +1,6 @@
 import test from 'ava'
-
-import nodeVersionAlias from '../src/main.js'
+// eslint-disable-next-line node/no-extraneous-import
+import nodeVersionAlias from 'node-version-alias'
 
 import {
   FULL_VERSION,

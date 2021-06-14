@@ -1,8 +1,8 @@
 import { env, version as processVersion } from 'process'
 
 import test from 'ava'
-
-import nodeVersionAlias from '../src/main.js'
+// eslint-disable-next-line node/no-extraneous-import
+import nodeVersionAlias from 'node-version-alias'
 
 import {
   NVM_DIR,

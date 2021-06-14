@@ -1,7 +1,7 @@
 import test from 'ava'
+// eslint-disable-next-line node/no-extraneous-import
+import nodeVersionAlias from 'node-version-alias'
 import { each } from 'test-each'
-
-import nodeVersionAlias from '../src/main.js'
 
 import { FULL_VERSION } from './helpers/versions.js'
 

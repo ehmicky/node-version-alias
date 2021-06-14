@@ -1,9 +1,9 @@
 import allNodeVersions from 'all-node-versions'
 import test from 'ava'
+// eslint-disable-next-line node/no-extraneous-import
+import nodeVersionAlias from 'node-version-alias'
 import { major as getMajor, gt as gtVersion } from 'semver'
 import { each } from 'test-each'
-
-import nodeVersionAlias from '../src/main.js'
 
 import { LATEST_BORON } from './helpers/versions.js'
 
