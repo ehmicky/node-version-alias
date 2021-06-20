@@ -49,7 +49,7 @@
     "all-node-versions": "^9.0.0",
     "filter-obj": "^2.0.1",
     "jest-validate": "^27.0.2",
-    "normalize-node-version": "^10.0.0",
+    "normalize-node-version": "^11.0.0",
     "path-exists": "^4.0.0",
     "semver": "^7.3.5"
   },
