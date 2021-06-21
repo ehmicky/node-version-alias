@@ -1,6 +1,5 @@
 import allNodeVersions from 'all-node-versions'
 import test from 'ava'
-// eslint-disable-next-line node/no-extraneous-import
 import nodeVersionAlias from 'node-version-alias'
 import semver from 'semver'
 import { each } from 'test-each'

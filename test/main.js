@@ -1,5 +1,4 @@
 import test from 'ava'
-// eslint-disable-next-line node/no-extraneous-import
 import nodeVersionAlias from 'node-version-alias'
 
 import {
