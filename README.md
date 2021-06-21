@@ -72,6 +72,10 @@ await nodeVersionAlias('latest', {
 npm install node-version-alias
 ```
 
+This package is an ES module and must be loaded using
+[an `import` or `import()` statement](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c),
+not `require()`.
+
 # Usage
 
 ## nodeVersionAlias(alias, options?)
