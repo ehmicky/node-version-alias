@@ -10,11 +10,6 @@
   "scripts": {
     "test": "gulp test"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "gulp -LL check --full"
-    }
-  },
   "description": "Resolve Node.js version aliases like 'latest', 'lts' or 'erbium'",
   "keywords": [
     "nodejs",
