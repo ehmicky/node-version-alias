@@ -8,7 +8,6 @@ import { getOpts } from './options.js'
 
 // Resolve Node.js version managers aliases like `latest`, `lts` or `erbium`.
 // First resolve them to a version range, then to a full version.
-// eslint-disable-next-line import/no-default-export
 export default async function nodeVersionAlias(alias, opts) {
   const { allNodeOpts, normalizeOpts } = getOpts(opts)
   const versionRange = await getVersionRange(alias, allNodeOpts)
