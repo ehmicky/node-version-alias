@@ -50,7 +50,7 @@
     "filter-obj": "^2.0.1",
     "jest-validate": "^27.0.6",
     "normalize-node-version": "^11.0.0",
-    "path-exists": "^4.0.0",
+    "path-exists": "^5.0.0",
     "semver": "^7.3.5"
   },
   "devDependencies": {
