@@ -3,7 +3,7 @@ import { join } from 'path'
 import { env } from 'process'
 import { promisify } from 'util'
 
-import pathExists from 'path-exists'
+import { pathExists } from 'path-exists'
 
 const pExecFile = promisify(execFile)
 
