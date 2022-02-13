@@ -56,7 +56,7 @@
   "devDependencies": {
     "@ehmicky/dev-tasks": "^1.0.65",
     "got": "^11.8.3",
-    "test-each": "^3.0.1"
+    "test-each": "^4.0.0"
   },
   "engines": {
     "node": ">=12.20.0"
