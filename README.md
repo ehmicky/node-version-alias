@@ -60,7 +60,7 @@ console.log(await nodeVersionAlias('>=10')) // 13.13.0
 // Allowed options
 await nodeVersionAlias('latest', {
   // Use a mirror for Node.js binaries
-  mirror: 'https://npm.taobao.org/mirrors/node',
+  mirror: 'https://npmmirror.com/mirrors/node',
   // Do not cache the list of available Node.js versions
   fetch: true,
 })
@@ -94,7 +94,7 @@ _Type_: `string`\
 _Default_: `https://nodejs.org/dist`
 
 Base URL to fetch the list of available Node.js versions. Can be customized (for
-example `https://npm.taobao.org/mirrors/node`).
+example `https://npmmirror.com/mirrors/node`).
 
 The following environment variables can also be used: `NODE_MIRROR`,
 `NVM_NODEJS_ORG_MIRROR`, `N_NODE_MIRROR` or `NODIST_NODE_MIRROR`.
