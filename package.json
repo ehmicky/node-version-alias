@@ -51,7 +51,7 @@
     "jest-validate": "^27.5.1",
     "normalize-node-version": "^11.0.0",
     "path-exists": "^5.0.0",
-    "semver": "^7.3.5"
+    "semver": "^7.3.6"
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^1.0.68",
