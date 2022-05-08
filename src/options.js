@@ -8,9 +8,9 @@ export const getOpts = function (opts = {}) {
   const optsA = filterObj(opts, isDefined)
   const optsB = { ...DEFAULT_OPTS, ...optsA }
 
-  const { fetch, mirror } = optsB
-  const normalizeOpts = { fetch, mirror }
-  const allNodeOpts = { fetch, mirror }
+  const { fetch: fetchOpt, mirror } = optsB
+  const normalizeOpts = { fetch: fetchOpt, mirror }
+  const allNodeOpts = { fetch: fetchOpt, mirror }
   return { normalizeOpts, allNodeOpts }
 }
 
