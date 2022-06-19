@@ -1,3 +1,9 @@
+# 3.0.1
+
+## Dependencies
+
+- Upgrade [`all-node-versions`](https://github.com/ehmicky/all-node-versions)
+
 # 3.0.0
 
 ## Breaking changes
