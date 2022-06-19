@@ -8,8 +8,13 @@ import { LATEST_BORON } from './helpers/versions.js'
 
 const getLatestFromMajor = async function (version) {
   const { versions } = await allNodeVersions()
+  const versionsA = versions.map(getNodeVersion)
   const majorVersion = semver.major(version)
-  return versions.find((versionA) => semver.major(versionA) === majorVersion)
+  return versionsA.find((versionA) => semver.major(versionA) === majorVersion)
+}
+
+const getNodeVersion = function ({ node }) {
+  return node
 }
 
 each(['lts', 'lts/*', 'lts/-0'], ({ title }, alias) => {
