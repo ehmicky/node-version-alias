@@ -46,7 +46,7 @@
     "test": "test"
   },
   "dependencies": {
-    "all-node-versions": "^10.1.0",
+    "all-node-versions": "^10.1.1",
     "filter-obj": "^3.0.0",
     "jest-validate": "^27.5.1",
     "normalize-node-version": "^12.1.0",
