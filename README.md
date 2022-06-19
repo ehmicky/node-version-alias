@@ -45,17 +45,17 @@ Normal version ranges (like `12.1.0`, `12` or `>=10`) are valid inputs too.
 import nodeVersionAlias from 'node-version-alias'
 
 // Note: the following examples might be out-of-sync with the actual versions
-console.log(await nodeVersionAlias('latest')) // 13.13.0
-console.log(await nodeVersionAlias('lts')) // 12.16.2
-console.log(await nodeVersionAlias('lts/erbium')) // 12.16.2
-console.log(await nodeVersionAlias('erbium')) // 12.16.2
-console.log(await nodeVersionAlias('lts/-2')) // 10.20.1
+console.log(await nodeVersionAlias('latest')) // 18.4.0
+console.log(await nodeVersionAlias('lts')) // 16.15.1
+console.log(await nodeVersionAlias('lts/erbium')) // 12.22.12
+console.log(await nodeVersionAlias('erbium')) // 12.22.12
+console.log(await nodeVersionAlias('lts/-2')) // 14.19.3
 
 // Normal version ranges
 console.log(await nodeVersionAlias('10.0.0')) // 10.0.0
-console.log(await nodeVersionAlias('10')) // 10.20.1
-console.log(await nodeVersionAlias('^10')) // 10.20.1
-console.log(await nodeVersionAlias('>=10')) // 13.13.0
+console.log(await nodeVersionAlias('10')) // 10.24.1
+console.log(await nodeVersionAlias('^10')) // 10.24.1
+console.log(await nodeVersionAlias('>=10')) // 18.4.0
 
 // Allowed options
 await nodeVersionAlias('latest', {
