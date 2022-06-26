@@ -1,7 +1,7 @@
 [![Codecov](https://img.shields.io/codecov/c/github/ehmicky/node-version-alias.svg?label=tested&logo=codecov)](https://codecov.io/gh/ehmicky/node-version-alias)
 [![Node](https://img.shields.io/node/v/node-version-alias.svg?logo=node.js)](https://www.npmjs.com/package/node-version-alias)
-[![Twitter](https://img.shields.io/badge/%E2%80%8B-twitter-4cc61e.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ehmicky)
-[![Medium](https://img.shields.io/badge/%E2%80%8B-medium-4cc61e.svg?logo=medium)](https://medium.com/@ehmicky)
+[![Twitter](https://img.shields.io/badge/%E2%80%8B-twitter-brightgreen.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ehmicky)
+[![Medium](https://img.shields.io/badge/%E2%80%8B-medium-brightgreen.svg?logo=medium)](https://medium.com/@ehmicky)
 
 Resolve Node.js version aliases like `latest`, `lts` or `erbium`.
 
