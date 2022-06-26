@@ -38,9 +38,6 @@ Normal version ranges (like `12.1.0`, `12` or `>=10`) are valid inputs too.
 
 # Examples
 
-<!-- Remove 'eslint-skip' once estree supports top-level await -->
-<!-- eslint-skip -->
-
 ```js
 import nodeVersionAlias from 'node-version-alias'
 
