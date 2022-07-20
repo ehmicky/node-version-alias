@@ -1,10 +1,11 @@
-import nodeVersionAlias, { Options, SemverVersion } from 'node-version-alias'
 import {
   expectType,
   expectError,
   expectAssignable,
   expectNotAssignable,
 } from 'tsd'
+
+import nodeVersionAlias, { Options, SemverVersion } from './main.js'
 
 expectType<SemverVersion>(await nodeVersionAlias('alias'))
 expectError(nodeVersionAlias())
