@@ -1,11 +1,11 @@
-import filterObj from 'filter-obj'
+import { excludeKeys } from 'filter-obj'
 import { validate } from 'jest-validate'
 
 // Normalize options and assign default values
 export const getOpts = function (opts = {}) {
   validate(opts, { exampleConfig: EXAMPLE_OPTS })
 
-  const optsA = filterObj(opts, isDefined)
+  const optsA = excludeKeys(opts, isUndefined)
   const optsB = { ...DEFAULT_OPTS, ...optsA }
 
   const { fetch: fetchOpt, mirror } = optsB
@@ -23,6 +23,6 @@ const EXAMPLE_OPTS = {
   mirror: 'https://nodejs.org/dist',
 }
 
-const isDefined = function (key, value) {
-  return value !== undefined
+const isUndefined = function (key, value) {
+  return value === undefined
 }
