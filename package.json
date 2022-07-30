@@ -36,7 +36,7 @@
     "bash"
   ],
   "license": "Apache-2.0",
-  "homepage": "https://git.io/JfJN3",
+  "homepage": "https://www.github.com/ehmicky/node-version-alias",
   "repository": "ehmicky/node-version-alias",
   "bugs": {
     "url": "https://github.com/ehmicky/node-version-alias/issues"
