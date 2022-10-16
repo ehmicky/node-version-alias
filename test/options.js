@@ -4,7 +4,7 @@ import { each } from 'test-each'
 
 import { FULL_VERSION } from './helpers/versions.js'
 
-each([{ fetch: 0 }, { mirror: false }], ({ title }, opts) => {
+each([true, { fetch: 0 }], ({ title }, opts) => {
   test(`Validates options | ${title}`, async (t) => {
     await t.throwsAsync(nodeVersionAlias(FULL_VERSION, opts))
   })

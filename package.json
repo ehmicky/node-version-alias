@@ -48,7 +48,7 @@
   "dependencies": {
     "all-node-versions": "^11.2.0",
     "filter-obj": "^5.1.0",
-    "jest-validate": "^29.0.1",
+    "is-plain-obj": "^4.1.0",
     "normalize-node-version": "^12.3.0",
     "path-exists": "^5.0.0",
     "semver": "^7.3.7"
