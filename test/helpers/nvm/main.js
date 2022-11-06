@@ -1,10 +1,10 @@
-import { execFile } from 'child_process'
-import { createWriteStream } from 'fs'
-import { readFile, writeFile, unlink } from 'fs/promises'
-import { join, dirname } from 'path'
-import { pipeline } from 'stream'
-import { fileURLToPath } from 'url'
-import { promisify } from 'util'
+import { execFile } from 'node:child_process'
+import { createWriteStream } from 'node:fs'
+import { readFile, writeFile, unlink } from 'node:fs/promises'
+import { join, dirname } from 'node:path'
+import { pipeline } from 'node:stream'
+import { fileURLToPath } from 'node:url'
+import { promisify } from 'node:util'
 
 import got from 'got'
 

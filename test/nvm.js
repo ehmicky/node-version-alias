@@ -1,4 +1,4 @@
-import { env, version as processVersion } from 'process'
+import { env, version as processVersion } from 'node:process'
 
 import test from 'ava'
 import nodeVersionAlias from 'node-version-alias'

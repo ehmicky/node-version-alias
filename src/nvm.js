@@ -1,7 +1,7 @@
-import { execFile } from 'child_process'
-import { join } from 'path'
-import { env } from 'process'
-import { promisify } from 'util'
+import { execFile } from 'node:child_process'
+import { join } from 'node:path'
+import { env } from 'node:process'
+import { promisify } from 'node:util'
 
 import { pathExists } from 'path-exists'
 
