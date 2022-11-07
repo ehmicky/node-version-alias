@@ -5,7 +5,7 @@ import {
   expectNotAssignable,
 } from 'tsd'
 
-import nodeVersionAlias, { Options, SemverVersion } from './main.js'
+import nodeVersionAlias, { Options, SemverVersion } from 'node-version-alias'
 
 expectType<SemverVersion>(await nodeVersionAlias('alias'))
 expectError(nodeVersionAlias())
