@@ -2,7 +2,7 @@ import test from 'ava'
 import nodeVersionAlias from 'node-version-alias'
 import { each } from 'test-each'
 
-import { IOJS_VERSION, UNSTABLE_VERSION } from './helpers/versions.js'
+import { IOJS_VERSION, UNSTABLE_VERSION } from './helpers/versions.test.js'
 
 each(['latest', 'stable', 'node', 'current'], ({ title }, alias) => {
   test(`Latest version | ${title}`, async (t) => {

@@ -8,8 +8,8 @@ import {
   downloadNvm,
   cleanupNvm,
   runNvmCommand,
-} from './helpers/nvm/main.js'
-import { FULL_VERSION, UNKNOWN_ALIAS } from './helpers/versions.js'
+} from './helpers/nvm/main.test.js'
+import { FULL_VERSION, UNKNOWN_ALIAS } from './helpers/versions.test.js'
 
 // eslint-disable-next-line fp/no-mutation
 env.NVM_DIR = NVM_DIR

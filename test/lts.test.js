@@ -4,7 +4,7 @@ import nodeVersionAlias from 'node-version-alias'
 import semver from 'semver'
 import { each } from 'test-each'
 
-import { LATEST_BORON } from './helpers/versions.js'
+import { LATEST_BORON } from './helpers/versions.test.js'
 
 const getLatestFromMajor = async function (version) {
   const { versions } = await allNodeVersions()

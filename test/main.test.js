@@ -6,7 +6,7 @@ import {
   MAJOR_VERSION,
   MAJOR_FULL_VERSION,
   UNKNOWN_VERSION,
-} from './helpers/versions.js'
+} from './helpers/versions.test.js'
 
 test('Keep full versions', async (t) => {
   const version = await nodeVersionAlias(FULL_VERSION)
