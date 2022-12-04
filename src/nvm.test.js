@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 
 import test from 'ava'
-import got from 'got'
+import { got } from 'got'
 import nodeVersionAlias from 'node-version-alias'
 
 // eslint-disable-next-line import/max-dependencies
