@@ -1,28 +1,28 @@
-import {
-  expectType,
-  expectError,
-  expectAssignable,
-  expectNotAssignable,
-} from 'tsd'
+import { expectType, expectAssignable, expectNotAssignable } from 'tsd'
 
 import nodeVersionAlias, { Options, SemverVersion } from 'node-version-alias'
 
 expectType<SemverVersion>(await nodeVersionAlias('alias'))
-expectError(nodeVersionAlias())
-expectError(nodeVersionAlias(true))
+// @ts-expect-error
+nodeVersionAlias()
+// @ts-expect-error
+nodeVersionAlias(true)
 
 nodeVersionAlias('alias', {})
 expectAssignable<Options>({})
-expectError(nodeVersionAlias('alias', true))
+// @ts-expect-error
+nodeVersionAlias('alias', true)
 
 nodeVersionAlias('alias', { mirror: 'http://example.com' })
 expectAssignable<Options>({ mirror: 'http://example.com' })
-expectError(nodeVersionAlias('alias', { mirror: true }))
+// @ts-expect-error
+nodeVersionAlias('alias', { mirror: true })
 
 nodeVersionAlias('alias', { fetch: true })
 nodeVersionAlias('alias', { fetch: undefined })
 expectAssignable<Options>({ fetch: true })
-expectError(nodeVersionAlias('alias', { fetch: 'true' }))
+// @ts-expect-error
+nodeVersionAlias('alias', { fetch: 'true' })
 
 expectAssignable<SemverVersion>('1.2.3')
 expectAssignable<SemverVersion>('0.0.1')
