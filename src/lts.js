@@ -41,19 +41,13 @@ const getLtsMajor = function (alias, ltsMajors) {
 // Those aliases mean the latest LTS
 // `lts` is used by n, nave, nvs, fish-nvm
 // `lts/*` is used by nvm, nave, nvs
-// `lts/-0` is used by nvm
-const LATEST_LTS = new Set(['lts', 'lts/*', 'lts/-0'])
+const LATEST_LTS = new Set(['lts', 'lts/*'])
 
-// `lts/-num` means the numth latest LTS.
+// `lts/-num` means the numth+1 latest LTS.
 // Used by nvm
 const getNumberedLts = function (alias, ltsMajors) {
   const result = NUMBER_LTS_REGEXP.exec(alias)
-
-  if (result === null) {
-    return
-  }
-
-  return ltsMajors[result[1] - 1]
+  return result === null || result[1] === '0' ? undefined : ltsMajors[result[1]]
 }
 
 const NUMBER_LTS_REGEXP = /^lts\/-(\d+)$/u

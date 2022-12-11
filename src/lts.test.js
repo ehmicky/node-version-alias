@@ -17,11 +17,16 @@ const getNodeVersion = function ({ node }) {
   return node
 }
 
-each(['lts', 'lts/*', 'lts/-0'], ({ title }, alias) => {
+each(['lts/-99', 'lts/-0', 'lts/unknown'], ({ title }, alias) => {
+  test(`Validates "lts/" | ${title}`, async (t) => {
+    await t.throwsAsync(nodeVersionAlias(alias))
+  })
+})
+
+each(['lts', 'lts/*'], ({ title }, alias) => {
   test(`Can target latest LTS | ${title}`, async (t) => {
     const version = await nodeVersionAlias(alias)
-    const latestLts = await getLatestFromMajor(version)
-    t.is(version, latestLts)
+    t.is(await getLatestFromMajor(version), version)
   })
 })
 
@@ -31,28 +36,15 @@ test('Can use "lts/-number"', async (t) => {
     nodeVersionAlias('lts/-2'),
   ])
 
-  const latestLtsOne = await getLatestFromMajor(ltsOne)
-  t.is(ltsOne, latestLtsOne)
-  const latestLtsTwo = await getLatestFromMajor(ltsTwo)
-  t.is(ltsTwo, latestLtsTwo)
+  t.is(await getLatestFromMajor(ltsOne), ltsOne)
+  t.is(await getLatestFromMajor(ltsTwo), ltsTwo)
 
   t.true(semver.gt(ltsOne, ltsTwo))
 })
 
-test('Validates "lts/-number"', async (t) => {
-  await t.throwsAsync(nodeVersionAlias('lts/-99'))
-})
-
-test('Can use "lts/name"', async (t) => {
-  const version = await nodeVersionAlias('lts/boron')
-  t.is(version, LATEST_BORON)
-})
-
-test('Can use "ltsName"', async (t) => {
-  const version = await nodeVersionAlias('boron')
-  t.is(version, LATEST_BORON)
-})
-
-test('Validates "lts/name"', async (t) => {
-  await t.throwsAsync(nodeVersionAlias('lts/unknown'))
+each(['lts/boron', 'boron'], ({ title }, alias) => {
+  test(`Can use "lts" by name | ${title}`, async (t) => {
+    const version = await nodeVersionAlias(alias)
+    t.is(version, LATEST_BORON)
+  })
 })
