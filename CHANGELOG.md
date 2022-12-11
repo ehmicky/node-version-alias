@@ -1,3 +1,10 @@
+# 3.4.1
+
+## Bug fixes
+
+- This `lts/-1`, `lts/-2`, etc. aliases. Those were
+  [one LTS version too high](https://github.com/ehmicky/node-version-alias/issues/8).
+
 # 3.4.0
 
 ## Features
