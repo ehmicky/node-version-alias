@@ -32,6 +32,15 @@
         "test",
         "ideas"
       ]
+    },
+    {
+      "login": "hongaar",
+      "name": "Joram van den Boezem",
+      "avatar_url": "https://avatars.githubusercontent.com/u/205834?v=4",
+      "profile": "https://joram.dev",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
