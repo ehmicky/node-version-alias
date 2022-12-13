@@ -27,7 +27,7 @@ env.NVM_DIR = NVM_DIR
 
 // We test `nvm` by downloading it locally. It is a Bash script and is not on
 // `npm` so we need to download it.
-const downloadNvm = async function () {
+const downloadNvm = async () => {
   const response = await got.stream(NVM_URL)
   const stream = createWriteStream(NVM_DIST)
   await pPipeline(response, stream)
@@ -36,15 +36,15 @@ const downloadNvm = async function () {
 }
 
 // `nvm.sh` last line executes `nvm use`. We need to comment it for tests.
-const commentLine = async function () {
+const commentLine = async () => {
   const content = await readFile(NVM_DIST, 'utf8')
-  const contentA = content.replace(COMMENTED_LINE, '# $&')
+  const contentA = content.replace(COMMENTED_LINE, '# BODY')
   await writeFile(NVM_DIST, contentA)
 }
 
 const COMMENTED_LINE = 'nvm_process_parameters "$@"'
 
-const cleanupNvm = async function () {
+const cleanupNvm = async () => {
   await unlink(NVM_DIST)
 }
 
@@ -52,7 +52,7 @@ test.before(downloadNvm)
 test.after(cleanupNvm)
 
 // Run `nvm` command in tests
-const runNvmCommand = async function (command) {
+const runNvmCommand = async (command) => {
   const { stdout } = await pExecFile('bash', [
     '-c',
     `source "${NVM_DIST}" && ${command}`,

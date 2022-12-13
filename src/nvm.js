@@ -8,17 +8,14 @@ import { pathExists } from 'path-exists'
 const pExecFile = promisify(execFile)
 
 // Retrieve nvm custom alias.
-export const getNvmCustomAlias = function (alias) {
-  return runNvmCommand(`nvm_alias ${alias}`)
-}
+export const getNvmCustomAlias = (alias) => runNvmCommand(`nvm_alias ${alias}`)
 
 // Retrieve Node.js version outside nvm
-export const getNvmSystemVersion = function () {
-  return runNvmCommand('nvm deactivate >/dev/null && node --version')
-}
+export const getNvmSystemVersion = () =>
+  runNvmCommand('nvm deactivate >/dev/null && node --version')
 
 // nvm requires sourcing `nvm.sh` first
-const runNvmCommand = async function (command) {
+const runNvmCommand = async (command) => {
   if (!env.NVM_DIR) {
     return
   }

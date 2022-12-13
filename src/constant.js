@@ -1,7 +1,7 @@
 import { getNvmSystemVersion } from './nvm.js'
 
 // Resolve aliases whose name is a constant and is not LTS-related
-export const getConstantAlias = function (alias) {
+export const getConstantAlias = (alias) => {
   const versionRange = ALIASES[alias]
 
   if (versionRange === undefined) {

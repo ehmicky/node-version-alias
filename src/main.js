@@ -8,7 +8,7 @@ import { getOpts } from './options.js'
 
 // Resolve Node.js version managers aliases like `latest`, `lts` or `erbium`.
 // First resolve them to a version range, then to a full version.
-export default async function nodeVersionAlias(alias, opts) {
+const nodeVersionAlias = async (alias, opts) => {
   const { allNodeOpts, normalizeOpts } = getOpts(opts)
   const versionRange = await getVersionRange(alias, allNodeOpts)
 
@@ -20,7 +20,9 @@ export default async function nodeVersionAlias(alias, opts) {
   return version
 }
 
-const getVersionRange = async function (alias, allNodeOpts) {
+export default nodeVersionAlias
+
+const getVersionRange = async (alias, allNodeOpts) => {
   if (semver.validRange(alias) !== null) {
     return alias
   }
@@ -41,7 +43,7 @@ const getVersionRange = async function (alias, allNodeOpts) {
 }
 
 // nvm custom aliases can be recursive
-const getRecursiveNvmAlias = async function (alias, allNodeOpts) {
+const getRecursiveNvmAlias = async (alias, allNodeOpts) => {
   const aliasResult = await getNvmCustomAlias(alias)
 
   if (aliasResult === undefined) {

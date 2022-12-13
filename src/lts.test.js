@@ -6,16 +6,14 @@ import { each } from 'test-each'
 
 import { LATEST_BORON } from './helpers/versions.test.js'
 
-const getLatestFromMajor = async function (version) {
+const getLatestFromMajor = async (version) => {
   const { versions } = await allNodeVersions()
   const versionsA = versions.map(getNodeVersion)
   const majorVersion = semver.major(version)
   return versionsA.find((versionA) => semver.major(versionA) === majorVersion)
 }
 
-const getNodeVersion = function ({ node }) {
-  return node
-}
+const getNodeVersion = ({ node }) => node
 
 each(['lts/-99', 'lts/-0', 'lts/unknown'], ({ title }, alias) => {
   test(`Validates "lts/" | ${title}`, async (t) => {
