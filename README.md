@@ -110,19 +110,25 @@ The list of available Node.js versions is cached for one hour by default. If the
 
 # CLI
 
-[`nve`](https://github.com/ehmicky/nve) can be used to run `node-version-alias`
-as a CLI. The [`--mirror`](https://github.com/ehmicky/nve#--mirror) and
+[`nve`](https://github.com/ehmicky/nve) can be used to
+[run `node-version-alias` as a CLI](https://github.com/ehmicky/nve#examples-list-versions).
+The [`--mirror`](https://github.com/ehmicky/nve#--mirror) and
 [`--fetch`](https://github.com/ehmicky/nve#--fetch) CLI flags are available.
 
 ```bash
+# Prints latest Node.js version
 $ nve latest
 19.3.0
 
-$ nve lts
-18.12.1
+# Prints latest Node.js 8 version
+$ nve 8
+8.17.0
 
-$ nve 10
+# Prints latest Node.js 12, 10 and 8 versions
+$ nve 12,10,8
+12.22.1
 10.24.1
+8.17.0
 ```
 
 # See also
