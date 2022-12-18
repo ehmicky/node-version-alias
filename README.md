@@ -108,6 +108,22 @@ The list of available Node.js versions is cached for one hour by default. If the
 - `true`: the cache will not be used
 - `false`: the cache will be used even if it's older than one hour
 
+# CLI
+
+[`nve`](https://github.com/ehmicky/nve) can be used to run `node-version-alias`
+as a CLI.
+
+```bash
+$ nve latest
+18.4.0
+
+$ nve lts
+16.5.1
+
+$ nve 10
+10.24.1
+```
+
 # See also
 
 - [`nve`](https://github.com/ehmicky/nve): Run a specific Node.js version (CLI)
