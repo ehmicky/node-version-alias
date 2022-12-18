@@ -42,17 +42,17 @@ Normal version ranges (like `12.1.0`, `12` or `>=10`) are valid inputs too.
 import nodeVersionAlias from 'node-version-alias'
 
 // Note: the following examples might be out-of-sync with the actual versions
-console.log(await nodeVersionAlias('latest')) // 18.4.0
-console.log(await nodeVersionAlias('lts')) // 16.15.1
+console.log(await nodeVersionAlias('latest')) // 19.3.0
+console.log(await nodeVersionAlias('lts')) // 18.12.1
 console.log(await nodeVersionAlias('lts/erbium')) // 12.22.12
 console.log(await nodeVersionAlias('erbium')) // 12.22.12
-console.log(await nodeVersionAlias('lts/-2')) // 14.19.3
+console.log(await nodeVersionAlias('lts/-2')) // 14.21.2
 
 // Normal version ranges
 console.log(await nodeVersionAlias('10.0.0')) // 10.0.0
 console.log(await nodeVersionAlias('10')) // 10.24.1
 console.log(await nodeVersionAlias('^10')) // 10.24.1
-console.log(await nodeVersionAlias('>=10')) // 18.4.0
+console.log(await nodeVersionAlias('>=10')) // 19.3.0
 
 // Allowed options
 await nodeVersionAlias('latest', {
@@ -79,12 +79,12 @@ not `require()`.
 ## nodeVersionAlias(alias, options?)
 
 `alias`: `string`\
-`options`: `object?`\
+`options`: [`Options?`](#options)\
 _Returns_: `Promise<string>`
 
 The return value resolves to a `"major.minor.patch"` version string.
 
-### options
+### Options
 
 #### mirror
 
@@ -115,10 +115,10 @@ as a CLI.
 
 ```bash
 $ nve latest
-18.4.0
+19.3.0
 
 $ nve lts
-16.5.1
+18.12.1
 
 $ nve 10
 10.24.1
@@ -126,7 +126,6 @@ $ nve 10
 
 # See also
 
-- [`nve`](https://github.com/ehmicky/nve): Run a specific Node.js version (CLI)
 - [`nvexeca`](https://github.com/ehmicky/nve): Run a specific Node.js version
   (programmatic)
 - [`get-node`](https://github.com/ehmicky/get-node): Download Node.js
