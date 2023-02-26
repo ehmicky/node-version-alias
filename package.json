@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^2.0.60",
-    "got": "^12.5.3",
+    "got": "^12.6.0",
     "test-each": "^5.7.1"
   },
   "engines": {
