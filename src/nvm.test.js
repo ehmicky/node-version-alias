@@ -3,7 +3,7 @@ import { createWriteStream } from 'node:fs'
 import { readFile, writeFile, unlink } from 'node:fs/promises'
 import { join, dirname } from 'node:path'
 import { env, version as processVersion } from 'node:process'
-import { pipeline } from 'node:stream'
+import { pipeline } from 'node:stream/promises'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 
@@ -15,8 +15,6 @@ import nodeVersionAlias from 'node-version-alias'
 import { FULL_VERSION, UNKNOWN_ALIAS } from './helpers/versions.test.js'
 
 const pExecFile = promisify(execFile)
-// TODO: use `stream/promises` instead once dropping support for Node <15.0.0
-const pPipeline = promisify(pipeline)
 
 const NVM_URL = 'https://raw.githubusercontent.com/nvm-sh/nvm/master/nvm.sh'
 const NVM_DIR = dirname(fileURLToPath(import.meta.url))
@@ -30,7 +28,7 @@ env.NVM_DIR = NVM_DIR
 const downloadNvm = async () => {
   const response = await got.stream(NVM_URL)
   const stream = createWriteStream(NVM_DIST)
-  await pPipeline(response, stream)
+  await pipeline(response, stream)
 
   await commentLine()
 }
