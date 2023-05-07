@@ -6,6 +6,9 @@ import type {
 
 export type { SemverVersion }
 
+// @ts-error @typescript-eslint/no-duplicate-type-constituents
+type UpstreamOptions = AllNodeVersionsOptions & NormalizeNodeVersionOptions
+
 export interface Options {
   /**
    * Base URL.
@@ -16,8 +19,7 @@ export interface Options {
    *
    * @default 'https://nodejs.org/dist'
    */
-  mirror?: AllNodeVersionsOptions['mirror'] &
-    NormalizeNodeVersionOptions['mirror']
+  mirror?: UpstreamOptions['mirror']
 
   /**
    * The list of available Node.js versions is cached for one hour by default.
@@ -27,7 +29,7 @@ export interface Options {
    *
    * @default `undefined`
    */
-  fetch?: AllNodeVersionsOptions['fetch'] & NormalizeNodeVersionOptions['fetch']
+  fetch?: UpstreamOptions['fetch']
 }
 
 /**
