@@ -56,7 +56,7 @@
     "is-plain-obj": "^4.1.0",
     "normalize-node-version": "^13.0.0",
     "path-exists": "^5.0.0",
-    "semver": "^7.5.3"
+    "semver": "^7.5.4"
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^2.0.85",
