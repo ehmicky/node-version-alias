@@ -1,6 +1,6 @@
 {
   "name": "node-version-alias",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "type": "module",
   "exports": {
     "types": "./build/src/main.d.ts",
