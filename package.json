@@ -54,7 +54,7 @@
     "all-node-versions": "^12.1.0",
     "filter-obj": "^5.1.0",
     "is-plain-obj": "^4.1.0",
-    "normalize-node-version": "^13.0.0",
+    "normalize-node-version": "^13.1.0",
     "path-exists": "^5.0.0",
     "semver": "^7.5.4"
   },
