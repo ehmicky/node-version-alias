@@ -20,6 +20,11 @@ expectAssignable<Options>({ mirror: 'http://example.com' })
 // @ts-expect-error
 await nodeVersionAlias('alias', { mirror: true })
 
+await nodeVersionAlias('alias', { signal: AbortSignal.abort() })
+expectAssignable<Options>({ signal: AbortSignal.abort() })
+// @ts-expect-error
+await nodeVersionAlias('alias', { signal: 'signal' })
+
 await nodeVersionAlias('alias', { fetch: true })
 await nodeVersionAlias('alias', { fetch: undefined })
 expectAssignable<Options>({ fetch: true })

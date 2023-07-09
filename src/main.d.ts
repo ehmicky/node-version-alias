@@ -22,6 +22,11 @@ export interface Options {
   mirror?: UpstreamOptions['mirror']
 
   /**
+   * Cancels when the signal is aborted.
+   */
+  signal?: UpstreamOptions['signal']
+
+  /**
    * The list of available Node.js versions is cached for one hour by default.
    * If the `fetch` option is:
    *  - `true`: the cache will not be used
@@ -84,6 +89,8 @@ export interface Options {
  *   mirror: 'https://npmmirror.com/mirrors/node',
  *   // Do not cache the list of available Node.js versions
  *   fetch: true,
+ *   // Cancels when the signal is aborted
+ *   signal: new AbortController().signal,
  * })
  * ```
  */

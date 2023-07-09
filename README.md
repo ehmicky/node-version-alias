@@ -60,6 +60,8 @@ await nodeVersionAlias('latest', {
   mirror: 'https://npmmirror.com/mirrors/node',
   // Do not cache the list of available Node.js versions
   fetch: true,
+  // Cancels when the signal is aborted
+  signal: new AbortController().signal,
 })
 ```
 
@@ -110,6 +112,13 @@ The list of available Node.js versions is cached for one hour by default. If the
 
 - `true`: the cache will not be used
 - `false`: the cache will be used even if it's older than one hour
+
+#### signal
+
+_Type_:
+[`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal)
+
+Cancels when the signal is aborted.
 
 # CLI
 

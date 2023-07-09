@@ -6,8 +6,8 @@ export const getOpts = (opts = {}) => {
     throw new TypeError(`Options must be a plain object: ${opts}`)
   }
 
-  const { fetch: fetchOpt, mirror } = opts
-  const normalizeOpts = { fetch: fetchOpt, mirror }
-  const allNodeOpts = { fetch: fetchOpt, mirror }
+  const { fetch: fetchOpt, mirror, signal } = opts
+  const normalizeOpts = { fetch: fetchOpt, mirror, signal }
+  const allNodeOpts = { fetch: fetchOpt, mirror, signal }
   return { normalizeOpts, allNodeOpts }
 }
