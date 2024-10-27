@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^3.0.19",
-    "@ehmicky/eslint-config": "^20.0.0",
+    "@ehmicky/eslint-config": "^20.0.1",
     "got": "^13.0.0",
     "test-each": "^7.0.0"
   },
