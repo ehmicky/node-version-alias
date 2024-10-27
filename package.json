@@ -62,7 +62,7 @@
     "semver": "^7.6.3"
   },
   "devDependencies": {
-    "@ehmicky/dev-tasks": "^3.0.23",
+    "@ehmicky/dev-tasks": "^3.0.24",
     "@ehmicky/eslint-config": "^20.0.12",
     "@ehmicky/prettier-config": "^1.0.3",
     "got": "^13.0.0",
