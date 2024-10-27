@@ -1,13 +1,13 @@
 import type { Options as AllNodeVersionsOptions } from 'all-node-versions'
 import type {
-  Options as NormalizeNodeVersionOptions,
+  Options as NormalizeVersionOptions,
   SemverVersion,
 } from 'normalize-node-version'
 
 export type { SemverVersion }
 
 // @ts-error @typescript-eslint/no-duplicate-type-constituents
-type UpstreamOptions = AllNodeVersionsOptions & NormalizeNodeVersionOptions
+type UpstreamOptions = AllNodeVersionsOptions & NormalizeVersionOptions
 
 export interface Options {
   /**
