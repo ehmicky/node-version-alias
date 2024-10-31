@@ -3,8 +3,8 @@ import nodeVersionAlias from 'node-version-alias'
 
 import {
   FULL_VERSION,
-  MAJOR_VERSION,
   MAJOR_FULL_VERSION,
+  MAJOR_VERSION,
   UNKNOWN_VERSION,
 } from './helpers/versions.test.js'
 

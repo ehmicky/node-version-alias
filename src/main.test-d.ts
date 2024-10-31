@@ -2,7 +2,7 @@ import nodeVersionAlias, {
   type Options,
   type SemverVersion,
 } from 'node-version-alias'
-import { expectType, expectAssignable, expectNotAssignable } from 'tsd'
+import { expectAssignable, expectNotAssignable, expectType } from 'tsd'
 
 expectType<SemverVersion>(await nodeVersionAlias('alias'))
 // @ts-expect-error
