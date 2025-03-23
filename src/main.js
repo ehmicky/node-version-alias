@@ -46,7 +46,7 @@ const getVersionRange = async (alias, allNodeOpts) => {
 const getRecursiveNvmAlias = async (alias, allNodeOpts) => {
   const aliasResult = await getNvmCustomAlias(alias)
 
-  if (aliasResult === undefined) {
+  if (aliasResult === undefined || aliasResult === '') {
     return
   }
 
