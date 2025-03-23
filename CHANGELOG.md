@@ -1,8 +1,8 @@
 # 5.0.1
 
-## Documentation
+## Bug fixes
 
-- Improve documentation in `README.md`
+- Fix [`lts/-1`](https://github.com/nvm-sh/nvm#long-term-support) shortcut
 
 # 5.0.0
 
