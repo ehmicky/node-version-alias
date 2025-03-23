@@ -54,7 +54,7 @@
     "lib": "src"
   },
   "dependencies": {
-    "all-node-versions": "^13.0.0",
+    "all-node-versions": "^13.0.1",
     "filter-obj": "^6.1.0",
     "is-plain-obj": "^4.1.0",
     "normalize-node-version": "^14.0.0",
